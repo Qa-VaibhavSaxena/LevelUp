@@ -1,17 +1,16 @@
 package utils;
 import java.util.Random;
-import io.testproject.sdk.drivers.web.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Utils
 {
-    //public ChromeDriver driver;
+    //public WebDriver driver;
     public String generatedNumber;
     public String generatedEmail;
 
     public Utils() throws Exception
     {
-        //driver = new ChromeDriver("yMFiOh5vl4Nf-AYGTkNgVT2awPEsQqWLJjwldFY1abo",new ChromeOptions());
+        //System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
+        //driver = new ChromeDriver();
 
         Random generator = new Random();
         int num1,num2,num3;
