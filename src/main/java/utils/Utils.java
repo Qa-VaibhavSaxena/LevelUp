@@ -1,17 +1,17 @@
 package utils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Utils
 {
-    //public WebDriver driver;
+    public WebDriver driver;
     public String generatedNumber;
     public String generatedEmail;
 
-    public Utils() throws Exception
+    public Utils()
     {
-        //System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
-        //driver = new ChromeDriver();
-
         Random generator = new Random();
         int num1,num2,num3;
         num1 = generator.nextInt(900)+100;
@@ -19,7 +19,21 @@ public class Utils
         num3 = generator.nextInt(9000)+100;
         generatedNumber = num1+""+num2+""+num3;
 
+        if(generatedNumber.length()==9)
+            generatedNumber=generatedNumber+"1";
+        else if(generatedNumber.length()==8)
+            generatedNumber=generatedNumber+"11";
+
         int randomInt = generator.nextInt(1000);
         generatedEmail  = "username"+ randomInt +"@gmail.com";
+    }
+
+    public WebDriver invoke()
+    {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        return driver;
     }
 }

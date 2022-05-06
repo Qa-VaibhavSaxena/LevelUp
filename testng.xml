@@ -3,7 +3,7 @@
 <suite name="Suite">
     <test verbose="2" preserve-order="true" name="Test">
         <classes>
-            <class name="login.BaseTest"/>
+            <class name="executable.LoginFlow"/>
         </classes>
     </test>
 </suite>
